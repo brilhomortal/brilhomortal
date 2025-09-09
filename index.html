@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Clone simples - Launcher</title>
+  <style>
+    /* reset mínimo */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg,#0b0c10 0%, #0f1420 100%);
+      color:#fff;
+      -webkit-font-smoothing:antialiased;
+      padding:20px;
+    }
+
+    /* container principal */
+    .container{
+      max-width:1100px;
+      margin:0 auto;
+    }
+
+    /* navbar simples */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:28px;
+    }
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{
+      width:40px;height:40px;border-radius:8px;
+      background:linear-gradient(135deg,#9b5cff,#5b21b6);
+      display:grid;place-items:center;font-weight:bold;color:#fff;
+    }
+    nav .signin{
+      background:rgba(255,255,255,0.06);
+      padding:8px 12px;border-radius:10px;font-size:14px;
+    }
+
+    /* área principal: responsiva (coluna em mobile, 2 colunas em desktop) */
+    .main{
+      display:flex;
+      flex-direction:column;
+      gap:24px;
+    }
+    @media(min-width:900px){
+      .main{flex-direction:row;align-items:center}
+    }
+
+    /* coluna esquerda */
+    .left{flex:1}
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 10px;border-radius:999px;
+      background:rgba(255,255,255,0.03);
+      color:#ddd;font-size:13px;margin-bottom:12px;
+    }
+    h1{font-size:36px;line-height:1.02;margin-bottom:14px}
+    p.lead{color:#cfcfd6;max-width:48ch;margin-bottom:16px}
+
+    .actions{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{
+      padding:10px 14px;border-radius:12px;border:none;cursor:pointer;font-weight:600;
+    }
+    .btn.primary{background:linear-gradient(90deg,#7c3aed,#5b21b6);color:white}
+    .btn.ghost{background:rgba(255,255,255,0.03);color:#eee;border:1px solid rgba(255,255,255,0.03)}
+
+    /* coluna direita: mock do app simples */
+    .right{flex:1;display:flex;justify-content:center}
+    .mock{
+      width:100%;max-width:520px;background:rgba(255,255,255,0.02);
+      border-radius:16px;padding:12px;border:1px solid rgba(255,255,255,0.03);
+    }
+    .mock-grid{display:flex;gap:12px}
+    .sidebar{
+      width:130px;background:rgba(255,255,255,0.01);padding:10px;border-radius:10px;
+    }
+    .avatar{width:38px;height:38px;border-radius:8px;background:linear-gradient(135deg,#fbbf24,#fb923c);margin-bottom:10px}
+    .avatar img {width: 100%; height: 100%; object-fit: cover; border-radius: 5px;}
+    .menu-item{padding:8px;border-radius:8px;color:#ddd;font-size:13px;margin-bottom:6px}
+    .menu-item.active{background:rgba(124,58,237,0.12);color:#fff}
+    .menu-item a {
+        text-decoration: none;
+        color: #ddd;
+    }
+    .menu-item:hover {
+        color: #2bb7ff;
+    }
+    .menu-item a:hover {
+        color: #2bb7ff;
+    }
+    .panel-area{flex:1;background:rgba(255,255,255,0.01);padding:10px;border-radius:10px}
+    .notice{background:rgba(255,255,255,0.02);padding:8px;border-radius:8px;margin-bottom:10px;font-size:13px;color:#d0d0d8}
+    .big-square{height:110px;border-radius:12px;margin:10px auto}
+    .big-square img {
+        height: 60%; width: 100%; position: relative; bottom: -20%; border-radius: 10px;
+    }
+    .field{background:rgba(255,255,255,0.01);padding:8px;border-radius:8px;margin-top:8px;font-size:13px;color:#ddd;display:flex;justify-content:space-between}
+
+    footer{margin-top:18px;color:rgba(255,255,255,0.35);font-size:13px;text-align:center}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">◇</div>
+        <div style="font-weight:600">BorderLine</div>
+      </div>
+      <div class="signin">Sign in</div>
+    </header>
+
+    <div class="main">
+      <!-- esquerda -->
+      <div class="left">
+        <div class="badge">Gostaria de um site igual para suas redes sociais?</div>
+        <h1>ricz<br></h1><h1 style="color: #9b5cff">brilhomortal</h1>
+        <p class="lead">Criador de conteúdo de Roblox, entre outros jogos.</p>
+
+        <div class="actions">
+          <button class="btn primary"><a href="https://www.tiktok.com/@brilhomortal" style="text-decoration: none; color: #ddd;">Tiktok </a></button>
+          <button class="btn ghost"><a href="https://www.instagram.com/brilhomortal" style="text-decoration: none; color: #ddd;">Instagram </a></button>
+        </div>
+
+        <p style="margin-top:10px;color:rgba(255,255,255,0.35);font-size:13px"></p>
+      </div>
+
+      <!-- direita -->
+      <div class="right">
+        <div class="mock" role="region" aria-label="mock do launcher">
+          <div class="mock-grid">
+            <div class="sidebar">
+              <div class="avatar" aria-hidden="true"><img src="perfil.jpg" alt="av"></div>
+              <div style="font-size:13px;color:#fff;margin-bottom:8px">Links do:<br><strong style="font-weight:700">ricz</strong></div>
+
+              <div class="menu-item"><a href="https://open.spotify.com/playlist/3HLruMZxnvzQ2AtzlbQ0UM?si=90453eb8f99a4a7b">Playlist do Spotify</a></div>
+              <div class="menu-item"><a href="https://discord.gg/G8UmyyZDjK">Hanami, Comunidade do ricz</a></div>
+              <div class="menu-item"><a href="https://discord.gg/emjEsKERYf" style="color: #9b5cff;">NGK Store, Robux barato</a></div>
+              <div class="menu-item"><a href="https://www.roblox.com/pt/users/4770756517/profile">Perfil do Roblox</a></div>
+              <div class="menu-item"></div>
+            </div>
+
+            <div class="panel-area">
+              <div class="notice">Perfil no tiktok de ricz: <strong style="color:#9b5cff"><a href="https://www.tiktok.com/@brilhomortal" style="text-decoration: none; color: #9b5cff;">Ver Perfil</a></strong></div>
+              <div class="big-square" aria-hidden="true"><img src="banner.png" alt="av"></div>
+
+              <div style="font-weight:700;text-align:center"></div>
+              <div class="field"><span>Outras contas: </span><span style="opacity:.6"></span></div>
+
+              <div style="display:flex;gap:6px;margin-top:8px">
+                <div class="field" style="flex:1;justify-content:center">Tiktok Secundário: @fizpartir</div>
+                <div class="field" style="flex:1;justify-content:center">Perfil do discord: s0rely</div>
+                <div class="field" style="flex:1;justify-content:center">...</div>
+                <div class="field" style="flex:1;justify-content:center">...</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>Clone simples para fins educativos.</footer>
+  </div>
+</body>
+</html>
